@@ -1,13 +1,31 @@
 @if (this.popupService.isOpen$()) {
-<div class="popup-overlay">
-  <div class="popup-content">
-    <header>
-      <h2>Pop-up Title</h2>
-      <button class="close-btn" (click)="closePopup()">×</button>
-    </header>
-    <section>
-      <p>This is the pop-up content. Customize as per the Figma design.</p>
-    </section>
+  <div class="popup-overlay">
+    <div class="popup-content">
+      <header>
+        <h2>Request Document</h2>
+        <h3>Affiliate ID: 555555</h3>
+        <button class="close-btn" (click)="closePopup()">×</button>
+      </header>
+      <section class="form-section">
+        <div class="form-group">
+          <label for="document-name">Type</label>
+          <input
+            type="text"
+            id="document-name"
+            placeholder="Choose or enter a new document type"
+          />
+        </div>
+        <div class="form-group">
+          <label for="document-details">Description</label>
+          <textarea
+            id="document-details"
+            placeholder="Ex: Please upload a clean and clear document"
+          ></textarea>
+        </div>
+      </section>
+      <section class="button-section">
+        <button class="confirm-btn" (click)="confirm()">Confirm</button>
+      </section>
+    </div>
   </div>
-</div>
 }

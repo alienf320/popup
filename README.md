@@ -29,7 +29,3 @@ ng serve
 - Responsive design using SCSS.
 - Modular structure with a dedicated service for pop-up state management.
 - Clean separation of logic and UI.
-
-## Notes
-
-- The pop-up can be opened by clicking the "Open Pop-up" button and closed by clicking the close button or outside the pop-up.

@@ -20,4 +20,9 @@ export class PopupComponent {
   closePopup() {
     this.popupService.close();
   }
+
+  confirm() {
+    // Here we should add logic to process the form
+    this.popupService.close()
+  }
 }
