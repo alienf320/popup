@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class PopupService {
-  private isOpen = signal(false)
-  isOpen$ = computed(() => this.isOpen())
+  private popupState = signal<{ type: string | null, isOpen: boolean }>({ type: null, isOpen: false })
+  popupState$ = computed(() => this.popupState())
 
-  open() {
-    this.isOpen.set(true);
+  open(type: 'request' | 'reject') {
+    this.popupState.set({ type: type, isOpen: true });
   }
 
   close() {
-    this.isOpen.set(false);
+    this.popupState.set({ type: null, isOpen: false });
   }
 }

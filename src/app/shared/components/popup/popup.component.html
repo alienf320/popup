@@ -1,4 +1,4 @@
-@if (this.popupService.isOpen$()) {
+@if (this.popupService.popupState$().type === 'request' && this.popupService.popupState$().isOpen) {
   <div class="popup-overlay">
     <div class="popup-content">
       <header>
