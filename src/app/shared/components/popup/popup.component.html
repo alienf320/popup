@@ -1,0 +1,13 @@
+@if (this.popupService.isOpen$()) {
+<div class="popup-overlay">
+  <div class="popup-content">
+    <header>
+      <h2>Pop-up Title</h2>
+      <button class="close-btn" (click)="closePopup()">×</button>
+    </header>
+    <section>
+      <p>This is the pop-up content. Customize as per the Figma design.</p>
+    </section>
+  </div>
+</div>
+}

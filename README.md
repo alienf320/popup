@@ -1,27 +1,35 @@
-# TechTest
+# Angular Pop-up Component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
+This project implements a reusable pop-up component in Angular 18 as part of a technical test. The pop-up supports open/close functionality, is styled with SCSS, and follows Angular best practices.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js (v18 or later)
+- Angular CLI (v18)
 
-## Code scaffolding
+## Setup Instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
 
-## Build
+git clone <https://github.com/alienf320/popup.git>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Install dependencies:
 
-## Running unit tests
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Run the development server:
 
-## Running end-to-end tests
+ng serve
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Open your browser at `http://localhost:4200`.
 
-## Further help
+## Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Reusable pop-up component with open/close functionality.
+- Responsive design using SCSS.
+- Modular structure with a dedicated service for pop-up state management.
+- Clean separation of logic and UI.
+
+## Notes
+
+- The pop-up can be opened by clicking the "Open Pop-up" button and closed by clicking the close button or outside the pop-up.
