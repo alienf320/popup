@@ -12,7 +12,7 @@ import {FormsModule} from '@angular/forms';
 export class RejectPopupComponent {
   selectedReason: string = '';
   reasons = [
-    { value: '', label: 'Select a reason' },
+    { value: '', label: 'Choose or enter other reason' },
     { value: 'incomplete', label: 'Fake document' },
     { value: 'invalid', label: 'Incorrect Document' },
     { value: 'non-clear', label: 'Document not clear' },

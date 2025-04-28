@@ -68,15 +68,19 @@
           display: block;
           font-size: 14px;
           color: #4b5563;
+          font-weight: 500;
           margin-bottom: 4px;
         }
 
         input {
+          appearance: none;
+          background-size: 12px;
           width: 100%;
-          padding: 8px;
-          font-size: 14px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
+          height: 32px;
+          padding: 8px 12px;
+          border-color: #E5E7EB;
+          border-radius: 8px;
+          border-width: 1px;
           outline: none;
           transition: border-color 0.2s;
 
@@ -93,21 +97,21 @@
           padding: 8px 12px;
           border-color: #E5E7EB;
           border-radius: 8px;
-          color: var(--text-neutral)
+          border-width: 1px;
+          color: var(--primary-color)
         }
 
-        select:focus {
+        option {
+          color: var(--primary-color)
+        }
+
+        select:focus-visible {
           border-color: var(--primary-color);
+          border-width: 0.5px;
         }
 
-        select:active {
-          border-color: var(--primary-color);
-        }
-
-        input::placeholder,
-        select::placeholder {
-          color: var(--text-neutral);
-          font-family: "DM Sans", sans-serif;
+        .placeholder {
+          color: var(--text-neutral-400)
         }
       }
     }

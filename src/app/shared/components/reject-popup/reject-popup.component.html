@@ -7,10 +7,12 @@
     </header>
     <section class="form-section">
       <div class="form-group">
-        <label for="reject-reason">Rejection Reason</label>
+        <label for="reject-reason">Please choose the reason of rejection</label>
         <select
           id="reject-reason"
+          placeholder="Choose or enter other reason"
           [(ngModel)]="selectedReason"
+          [class.placeholder] = "selectedReason === ''"
         >
         @for (reason of reasons; track $index) {
           <option [value]="reason.value">
@@ -21,7 +23,7 @@
       </div>
       @if (selectedReason === 'other') {
       <div class="form-group">
-        <label for="other-reason">Please specify</label>
+        <label for="other-reason">Enter the reason</label>
         <input
           type="text"
           id="other-reason"
