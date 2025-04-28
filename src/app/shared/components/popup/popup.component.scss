@@ -79,13 +79,15 @@
     }
 
     input,
-    textarea {
+    textarea,
+    select {
       width: 100%;
-      padding: 8px;
+      padding: 8px 12px;
       font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
       outline: none;
+      height: 32px;
       transition: border-color 0.2s;
 
       &:focus {
@@ -102,6 +104,34 @@
     textarea::placeholder {
       color: #8E97A6;
       font-family: 'DM Sans', sans-serif;
+    }
+
+    select {
+      appearance: none;
+      background-size: 12px;
+      border-radius: 8px;
+      border-width: 1px;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--primary-color)
+    }
+
+    option {
+      color: var(--text-neutral-600)
+    }
+
+    option.selected {
+      background-color: var(--table-row);
+      color: var(--text-primary)
+    }
+
+    select.placeholder {
+      color: var(--text-tertiary)
+    }
+
+    select:focus-visible {
+      border-color: var(--primary-color);
+      border-width: 0.5px;
     }
   }
 }

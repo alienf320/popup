@@ -1,31 +1,61 @@
-@if (this.popupService.popupState$().type === 'request' && this.popupService.popupState$().isOpen) {
-  <div class="popup-overlay">
-    <div class="popup-content">
-      <header>
-        <h2>Request Document</h2>
-        <h3>Affiliate ID: 555555</h3>
-        <button class="close-btn" (click)="closePopup()">×</button>
-      </header>
-      <section class="form-section">
-        <div class="form-group">
-          <label for="document-name">Type</label>
-          <input
-            type="text"
-            id="document-name"
-            placeholder="Choose or enter a new document type"
-          />
-        </div>
-        <div class="form-group">
-          <label for="document-details">Description</label>
-          <textarea
-            id="document-details"
-            placeholder="Ex: Please upload a clean and clear document"
-          ></textarea>
-        </div>
-      </section>
-      <section class="button-section">
-        <button class="confirm-btn" (click)="confirm()">Confirm</button>
-      </section>
-    </div>
+@let popupState = popupService.popupState$(); @if (popupState.isOpen) {
+<div class="popup-overlay">
+  <div class="popup-content">
+    <header>
+      <h2>{{ popupState?.config?.title }}</h2>
+      @if (popupState.config?.subtitle) {
+        <h3>{{ popupState?.config?.subtitle }}</h3>
+      }
+      <button class="close-btn" (click)="closePopup()">×</button>
+    </header>
+    <section class="form-section">
+      @for (field of popupState.config?.fields; track $index) {
+      <div
+        class="form-group"
+        [hidden]="
+          field.showIf &&
+          getFieldValue(popupState?.config!, field.showIf.fieldId) !==
+            field.showIf.value
+        "
+      >
+      @if (field.label) {
+        <label [for]="field.id">{{ field.label }}</label>
+      }
+        @switch (field.type) { @case ('input') {
+        <input
+          type="text"
+          [id]="field.id"
+          [placeholder]="field.placeholder"
+          [(ngModel)]="field.value"
+        />
+        } @case ('textarea') {
+        <textarea
+          [id]="field.id"
+          [placeholder]="field.placeholder"
+          [(ngModel)]="field.value"
+        ></textarea>
+        } @case ('select') {
+        <select [id]="field.id" [(ngModel)]="field.value" [class.placeholder]="field.value === ''">
+          @for (option of field.options; track $index) {
+          <option
+            [value]="option.value"
+            [class.selected]="field.value === option.value"
+          >
+            {{ option.label }}
+          </option>
+          }
+        </select>
+        } }
+      </div>
+      }
+    </section>
+    <section class="button-section">
+      @if (popupState.config?.confirmButton) {
+      <button class="confirm-btn" (click)="confirm()">
+        {{ popupState.config?.confirmButton?.label }}
+      </button>
+      }
+    </section>
   </div>
+</div>
 }
